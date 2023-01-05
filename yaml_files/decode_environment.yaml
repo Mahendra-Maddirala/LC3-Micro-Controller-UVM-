@@ -1,0 +1,35 @@
+uvmf:
+  environments:
+    decode:
+      agents:
+      - name: dec_in
+        type: decode_in
+      - name: dec_out
+        type: decode_out
+      analysis_components:
+      - name: dec_pred
+        parameters: []
+        type: decode_predictor
+      analysis_exports: []
+      analysis_ports: []
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'False'
+      hvl_pkg_parameters: []
+      non_uvmf_components: []
+      parameters: []
+      qvip_memory_agents: []
+      scoreboards:
+      - name: dec_sb
+        sb_type: uvmf_in_order_scoreboard
+        trans_type: decode_out_transaction
+      subenvs: []
+      tlm_connections:
+      - driver: dec_in.monitored_ap
+        receiver: dec_pred.dec_in_agent_ae
+      - driver: dec_pred.dec_sb_ap
+        receiver: dec_sb.expected_analysis_export
+      - driver: dec_out.monitored_ap
+        receiver: dec_sb.actual_analysis_export
+      imports:
+      - name: "lc3_prediction_pkg"  

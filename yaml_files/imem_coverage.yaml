@@ -1,0 +1,8 @@
+uvmf:
+  util_components:
+    imem_coverage:
+      analysis_exports:
+      - name: imem_cov_ae
+        type: 'imem_transaction'
+      existing_library_component: 'False'
+      type: coverage

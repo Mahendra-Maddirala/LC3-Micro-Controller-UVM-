@@ -1,0 +1,3 @@
+needs:
+  - imem_hvl.compile
+  - imem_hdl.compile

@@ -1,0 +1,78 @@
+uvmf:
+  interfaces:
+    dmem:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: complete_data
+        reset_value: '''bz'
+        width: '1'
+      - dir: input
+        name: Data_dout
+        reset_value: '''bz'
+        width: '16'
+      - dir: output
+        name: Data_din
+        reset_value: '''bz'
+        width: '16'
+      - dir: output
+        name: Data_addr
+        reset_value: '''bz'
+        width: '16'
+      - dir: output
+        name: Data_rd
+        reset_value: '''bz'
+        width: '1'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints:
+      - comment: ''
+        name: wait_complete_c
+        value: '{ wait_complete > 0 ; wait_complete < 4;}'
+      transaction_vars:
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: complete_data
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: wait_complete
+        type: int
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: Data_dout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: Data_din
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: Data_addr
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: Data_rd
+        type: bit
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

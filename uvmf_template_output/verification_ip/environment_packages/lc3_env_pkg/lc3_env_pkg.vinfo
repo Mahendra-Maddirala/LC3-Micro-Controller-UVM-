@@ -1,0 +1,10 @@
+@use $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/interface_packages/imem_pkg/imem_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/interface_packages/dmem_pkg/dmem_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/environment_packages/decode_env_pkg/decode_env_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/environment_packages/execute_env_pkg/execute_env_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/environment_packages/memaccess_env_pkg/memaccess_env_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/environment_packages/writeback_env_pkg/writeback_env_pkg.vinfo
+registers/lc3_reg_pkg.sv
++incdir+@vinfodir
+lc3_env_pkg.sv

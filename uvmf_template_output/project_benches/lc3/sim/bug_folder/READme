@@ -1,0 +1,10 @@
+Bug description:
+   1. The very first transaction of the simulation is not getting executed.
+   2. Our initial test setup contains Load to all Architectural registers(R0 to R7)and Store them to see any mismatch. We observed, that first instruction got skipped and the R0 Store gave 16'hxxxx on the DataIn port of DUT.
+   3. As a local hack, we added dummy first instruction to put non X values into the Registers as initial setup.
+Steps to regenerate the issues:
+   1. make local_debug_bug
+
+Steps to check the issue:
+   1. The first 8 instructions are Loads to the registers. We can see only 7 RD instructions coming out of the LC3 DMmem side.
+   2. The 9th instruction, i.e. Store of R0 gives out 16'hx on LC3 Data_Din port. 

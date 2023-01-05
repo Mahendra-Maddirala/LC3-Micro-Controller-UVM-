@@ -1,0 +1,52 @@
+uvmf:
+  environments:
+    lc3:
+      agents:
+      - initiator_responder: RESPONDER
+        name: imem_in
+        type: imem
+      - initiator_responder: RESPONDER
+        name: dmem_in
+        type: dmem
+      analysis_components:
+      - name: imem_cov
+        parameters: []
+        type: imem_coverage
+      - name: dmem_cov
+        parameters: []
+        type: dmem_coverage
+      analysis_exports: []
+      analysis_ports: []
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      hvl_pkg_parameters: []
+      non_uvmf_components: []
+      parameters: []
+      qvip_memory_agents: []
+      register_model:
+        reg_block_class: lc3_reg_model
+        reg_model_package: lc3_reg_pkg
+        use_adapter: 'False'
+        use_explicit_prediction: 'False'
+      scoreboards: []
+      subenvs:
+      - name: decode_env
+        parameters: []
+        type: decode
+      - name: execute_env
+        parameters: []
+        type: execute
+      - name: memaccess_env
+        parameters: []
+        type: memaccess
+      - name: writeback_env
+        parameters: []
+        type: writeback
+      tlm_connections:
+      - driver: imem_in.monitored_ap
+        receiver: imem_cov.imem_cov_ae
+        validate: 'True'
+      - driver: dmem_in.monitored_ap
+        receiver: dmem_cov.dmem_cov_ae
+        validate: 'True'

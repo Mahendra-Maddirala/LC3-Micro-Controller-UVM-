@@ -1,0 +1,34 @@
+uvmf:
+  environments:
+    "lc3" :
+      agents:
+         - name: "imem_in"
+           type: "imem"
+           initiator_responder: "RESPONDER"
+         - name: "dmem_in"
+           type: "dmem"
+           initiator_responder: "RESPONDER"
+      subenvs :
+        - name: "decode_env"
+          type: "decode"
+        - name: "execute_env"
+          type: "execute"
+        - name: "memaccess_env"
+          type: "memaccess"
+        - name: "writeback_env"
+          type: "writeback"
+      analysis_components:
+      - name: imem_cov
+        parameters: []
+        type: imem_coverage
+      - name: dmem_cov
+        parameters: []
+        type: dmem_coverage
+      tlm_connections:
+      - driver: imem_in.monitored_ap
+        receiver: imem_cov.imem_cov_ae
+      - driver: dmem_in.monitored_ap
+        receiver: dmem_cov.dmem_cov_ae
+      register_model:
+        use_adapter: "False"
+        use_explicit_prediction: "False"

@@ -1,0 +1,23 @@
+Number of tests: 8
+
+Regression script: regress.sh
+
+Script operations:
+   1. Removes already present transcript_folder area.
+   2. Removes already present testplan and merged ucdb files.
+   3. Converts testplan to testplan ucdb freshly.
+   4. Run libs,build,optmize.
+   5. Runs each test and copies the transcript file to transcript_folder.
+   6. Merges ucdb.
+   7. Reports coverage.
+
+Saved UCDB path:
+   sim/saved_ucdb/*
+   coverage_image: sim/saved_ucdb/coverage.png
+
+Saved transcripts path:
+   sim/saved_transcripts/*
+
+Bug details folder:
+   sim/bug_folder
+   

@@ -1,0 +1,9 @@
+needs:
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg_hdl.compile
+  - ./imem_common.compile
+incdir:
+  - .
+src:
+  - src/imem_if.sv
+  - src/imem_monitor_bfm.sv
+  - src/imem_driver_bfm.sv

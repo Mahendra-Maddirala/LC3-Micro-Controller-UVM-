@@ -1,0 +1,185 @@
+uvmf:
+  interfaces:
+    imem:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs:
+      - name: op_t
+        type: enum bit [3:0] {ADD=4'b0001, AND=4'b0101, NOT=4'b1001, LD=4'b0010, LDR=4'b0110, LDI=4'b1010, LEA=4'b1110, ST=4'b0011, STR=4'b0111, STI=4'b1011, BR=4'b0000, JMP=4'b1100}
+      - name: reg_t
+        type: bit [2:0]
+      - name: baser_t
+        type: bit [2:0]
+      - name: pcoffset9_t
+        type: bit [8:0]
+      - name: pcoffset6_t
+        type: bit [5:0]
+      - name: imm5_t
+        type: bit [4:0]
+      - name: n_t
+        type: bit
+      - name: z_t
+        type: bit
+      - name: p_t
+        type: bit
+      - name: imm_t
+        type: bit
+      - name: npc_t
+        type: bit [15:0]
+      - name: instr_t
+        type: bit [15:0]
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: output
+        name: pc
+        reset_value: '''bz'
+        width: '16'
+      - dir: output
+        name: instrmem_rd
+        reset_value: '''bz'
+        width: '1'
+      - dir: input
+        name: instr_dout
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: complete_instr
+        reset_value: '''bz'
+        width: '1'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints:
+      - comment: ''
+        name: valid_opcodes_c
+        value: '{ opcode inside {ADD,AND,NOT,LD,LDR,LDI,LEA,ST,STR,STI,BR,JMP};} '
+      - comment: ''
+        name: nzp_dist_c
+        value: '{ {n,z,p} dist {0 :/ 100  , [1:6] :/ 100 , 7 :/ 100};}'
+      - comment: ''
+        name: add_c
+        value: '{if(opcode == ADD && imm == 0) instruction == {opcode,dr,sr1,3''b0,sr2}; if(opcode == ADD && imm == 1) instruction == {opcode,dr,sr1,1''b1,imm5};}'
+      - comment: ''
+        name: and_c
+        value: '{if(opcode == AND && imm == 0) instruction == {opcode,dr,sr1,3''b0,sr2}; if(opcode == AND && imm == 1) instruction == {opcode,dr,sr1,1''b1,imm5};}'
+      - comment: ''
+        name: not_c
+        value: '{if(opcode == NOT) instruction == {opcode,dr,sr1,6''h3f};}'
+      - comment: ''
+        name: ld_c
+        value: '{if(opcode == LD) instruction == {opcode,dr,pcoffset9};}'
+      - comment: ''
+        name: ldr_c
+        value: '{if(opcode == LDR) instruction == {opcode,dr,baser,pcoffset6};}'
+      - comment: ''
+        name: ldi_c
+        value: '{if(opcode == LDI) instruction == {opcode,dr,pcoffset9};}'
+      - comment: ''
+        name: lea_c
+        value: '{if(opcode == LEA) instruction == {opcode,dr,pcoffset9};}'
+      - comment: ''
+        name: st_c
+        value: '{if(opcode == ST) instruction == {opcode,sr1,pcoffset9};}'
+      - comment: ''
+        name: str_c
+        value: '{if(opcode == STR) instruction == {opcode,sr1,baser,pcoffset6};}'
+      - comment: ''
+        name: sti_c
+        value: '{if(opcode == STI) instruction == {opcode,sr1,pcoffset9};}'
+      - comment: ''
+        name: br_c
+        value: '{if(opcode == BR) instruction == {opcode,n,z,p,pcoffset9};}'
+      - comment: ''
+        name: jmp_c
+        value: '{if(opcode == JMP) instruction == {opcode,3''b0,baser,6''b0};}'
+      transaction_vars:
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: opcode
+        type: op_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: sr1
+        type: reg_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: sr2
+        type: reg_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: dr
+        type: reg_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: baser
+        type: baser_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: pcoffset9
+        type: pcoffset9_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: pcoffset6
+        type: pcoffset6_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: imm5
+        type: imm5_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: n
+        type: n_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: z
+        type: z_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: p
+        type: p_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: imm
+        type: imm_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: instruction
+        type: instr_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: npc_in
+        type: npc_t
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

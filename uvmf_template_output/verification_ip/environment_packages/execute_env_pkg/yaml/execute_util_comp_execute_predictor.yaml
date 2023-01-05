@@ -1,0 +1,11 @@
+uvmf:
+  util_components:
+    execute_predictor:
+      analysis_exports:
+      - name: execute_in_agent_ae
+        type: execute_in_transaction
+      analysis_ports:
+      - name: execute_in_sb_ap
+        type: execute_out_transaction
+      existing_library_component: 'True'
+      type: predictor

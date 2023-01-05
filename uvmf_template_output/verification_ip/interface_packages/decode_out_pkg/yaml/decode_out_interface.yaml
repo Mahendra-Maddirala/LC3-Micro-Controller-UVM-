@@ -1,0 +1,83 @@
+uvmf:
+  interfaces:
+    decode_out:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs:
+      - name: ir_t
+        type: bit [15:0]
+      - name: e_ctrl_t
+        type: bit [5:0]
+      - name: npc_t
+        type: bit [15:0]
+      - name: m_ctrl_t
+        type: bit [0:0]
+      - name: w_ctrl_t
+        type: bit [1:0]
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: IR
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: E_control
+        reset_value: '''bz'
+        width: '6'
+      - dir: input
+        name: npc_out
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: M_control
+        reset_value: '''bz'
+        width: '1'
+      - dir: input
+        name: W_control
+        reset_value: '''bz'
+        width: '2'
+      - dir: output
+        name: enable_decode
+        reset_value: '''bz'
+        width: '1'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: IR
+        type: ir_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: E_control
+        type: e_ctrl_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: npc_out
+        type: npc_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: M_control
+        type: m_ctrl_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: W_control
+        type: w_ctrl_t
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

@@ -1,0 +1,3 @@
+needs:
+  - dmem_hvl.compile
+  - dmem_hdl.compile

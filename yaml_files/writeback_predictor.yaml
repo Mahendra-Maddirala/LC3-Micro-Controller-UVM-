@@ -1,0 +1,11 @@
+uvmf:
+  util_components:
+    writeback_predictor:
+      analysis_exports:
+      - name: wb_in_agent_ae
+        type: 'writeback_in_transaction'
+      analysis_ports:
+      - name: wb_sb_ap
+        type: 'writeback_out_transaction'
+      existing_library_component: 'False'
+      type: predictor

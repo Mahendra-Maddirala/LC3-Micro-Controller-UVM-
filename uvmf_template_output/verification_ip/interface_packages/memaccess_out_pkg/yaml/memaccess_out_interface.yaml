@@ -1,0 +1,79 @@
+uvmf:
+  interfaces:
+    memaccess_out:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs:
+      - name: mem_state_t
+        type: bit [1:0]
+      - name: DMem_addr_t
+        type: bit [15:0]
+      - name: DMem_din_t
+        type: bit [15:0]
+      - name: DMem_rd_t
+        type: bit
+      - name: memout_t
+        type: bit [15:0]
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: output
+        name: mem_state
+        reset_value: '''bz'
+        width: '2'
+      - dir: input
+        name: DMem_addr
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: DMem_din
+        reset_value: '''bz'
+        width: '16'
+      - dir: input
+        name: DMem_rd
+        reset_value: '''bz'
+        width: '1'
+      - dir: input
+        name: memout
+        reset_value: '''bz'
+        width: '16'
+      reset: reset
+      reset_assertion_level: 'True'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'True'
+        name: mem_state
+        type: mem_state_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: DMem_addr
+        type: DMem_addr_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: DMem_din
+        type: DMem_din_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: DMem_rd
+        type: DMem_rd_t
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: memout
+        type: memout_t
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

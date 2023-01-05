@@ -1,0 +1,22 @@
+//----------------------------------------------------------------------
+// Created with uvmf_gen version 2022.3
+//----------------------------------------------------------------------
+// pragma uvmf custom header begin
+// pragma uvmf custom header end
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+//
+
+,
+Interface Description, Interface Type, Interface Transaction, Interface Name,
+decode_env_dec_in, decode_in_driver_bfm decode_in_monitor_bfm, decode_in_transaction, decode_in_pkg_decode_env_dec_in_BFM,
+decode_env_dec_out, decode_out_driver_bfm decode_out_monitor_bfm, decode_out_transaction, decode_out_pkg_decode_env_dec_out_BFM,
+execute_env_execute_in_agent, execute_in_driver_bfm execute_in_monitor_bfm, execute_in_transaction, execute_in_pkg_execute_env_execute_in_agent_BFM,
+execute_env_execute_out_agent, execute_out_driver_bfm execute_out_monitor_bfm, execute_out_transaction, execute_out_pkg_execute_env_execute_out_agent_BFM,
+memaccess_env_agent_in, memaccess_in_driver_bfm memaccess_in_monitor_bfm, memaccess_in_transaction, memaccess_in_pkg_memaccess_env_agent_in_BFM,
+memaccess_env_agent_out, memaccess_out_driver_bfm memaccess_out_monitor_bfm, memaccess_out_transaction, memaccess_out_pkg_memaccess_env_agent_out_BFM,
+writeback_env_wb_in, writeback_in_driver_bfm writeback_in_monitor_bfm, writeback_in_transaction, writeback_in_pkg_writeback_env_wb_in_BFM,
+writeback_env_wb_out, writeback_out_driver_bfm writeback_out_monitor_bfm, writeback_out_transaction, writeback_out_pkg_writeback_env_wb_out_BFM,
+imem_in, imem_driver_bfm imem_monitor_bfm, imem_transaction, imem_pkg_imem_in_BFM,
+dmem_in, dmem_driver_bfm dmem_monitor_bfm, dmem_transaction, dmem_pkg_dmem_in_BFM,
+
